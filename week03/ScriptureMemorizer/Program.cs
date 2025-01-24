@@ -5,7 +5,7 @@ namespace Scripture_Memorizer;
         {
              static void Main(string[] args)
                 {
-                   Scripture scripture1 = new Scripture();
+                   Reference scripture1 = new Reference();
                    scripture1
                 }
         }
