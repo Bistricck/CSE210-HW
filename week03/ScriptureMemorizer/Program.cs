@@ -1,9 +1,12 @@
 using System;
-
-class Program
-{
-    static void Main(string[] args)
+namespace Scripture_Memorizer;
     {
-        Console.WriteLine("Hello World! This is the ScriptureMemorizer Project.");
+        class Program
+        {
+             static void Main(string[] args)
+                {
+                   Scripture scripture1 = new Scripture();
+                   scripture1
+                }
+        }
     }
-}
