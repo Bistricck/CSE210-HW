@@ -1,26 +1,34 @@
 using System;
 
 public class Reference
+{
+    private string _book;
+    private int _chapter;
+    private int _verse;
+    private int? _endVerse; // Nullable to allow single-verse references
+
+    // Constructor for a single verse
+    public Reference(string book, int chapter, int verse)
     {
-        public string _book;
-        public int _chapter;
-        public int _verse;
-        public int _endVerse;
-
-        public Reference(string book, int chapter, int verse)
-        {
-            _book = book;
-            _chapter = chapter;
-            _verse = verse;
-        }
-
-        public string GetDisplayText()
-        {
-            //If the verse is singular the verse ends. If the passage contains more than one verse it will return multiple verses
-            if (_verse == _endVerse)
-                return($"{_book}, {_chapter}, {_verse}");
-            else
-                return($"{_book} {_chapter}: {_verse} -- {_endVerse}");
-        }
-
+        _book = book;
+        _chapter = chapter;
+        _verse = verse;
+        _endVerse = null; // No end verse, meaning it's a single-verse reference
     }
+
+    // Constructor for multiple verses
+    public Reference(string book, int chapter, int verse, int endVerse)
+    {
+        _book = book;
+        _chapter = chapter;
+        _verse = verse;
+        _endVerse = endVerse;
+    }
+
+    public string GetDisplayText()
+    {
+        return _endVerse.HasValue
+            ? $"{_book} {_chapter}:{_verse}-{_endVerse}"
+            : $"{_book} {_chapter}:{_verse}";
+    }
+}
