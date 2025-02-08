@@ -1,5 +1,5 @@
 using System;
-
+//Create Class Address. Need street, city, state, country.
 public class Address
 {
     private string street;
@@ -14,7 +14,7 @@ public class Address
         this.state = state;
         this.country = country;
     }
-
+//Bool to determine if the order is coming from inside the us.
     public bool IsInUSA()
     {
         return country.ToLower() == "usa";
